@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rith Seyhak - Software Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Rith Seyhak, a passionate software engineer specializing in full-stack development">
+    <meta name="keywords" content="Rith Seyhak, Software Engineer, Portfolio, Web Development, TypeScript, React">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/responsive.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader">
+            <span class="loader-text">loading</span>
+            <span class="load"></span>
+        </div>
+    </div>
+    
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">RS</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text fade-in-left">
+                    <h1 class="hero-title">
+                        Hi, I'm <br>
+                        <span class="highlight">Rith Seyhak</span>
+                    </h1>
+                    <p class="hero-subtitle">Software Engineer</p>
+                    <div class="hero-badge">
+                        <a href="#" class="badge" download onclick="downloadCV()">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                    <div class="hero-cta fade-in-up">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#portfolio" class="btn btn-secondary">View Work</a>
+                    </div>
+                </div>
+                <div class="hero-visual fade-in-right">
+                    <div class="floating-elements">
+                        <div class="floating-item nyan-cat float">🐱‍🏍</div>
+                        <div class="floating-item rainbow float">🌈</div>
+                        <div class="floating-item stars float">✨</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in-left">
+                    <p class="about-description">
+                        I am a recent Software Engineering graduate from the Cambodia Academy of Digital Technology (CADT), driven by a passion for creating technology that is not only powerful but also accessible and delightful to use.
+                    </p>
+                    <p class="about-description">
+                        My journey in tech has given me a strong foundation in multiple programming languages and frameworks, allowing me to thrive on both the front-end and back-end. However, I discovered my true calling lies at the intersection of code and design. I believe that exceptional software is born from a seamless marriage of clean, efficient logic and thoughtful, user-centered design principles (UX/UI). I am adept at translating complex problems into intuitive interfaces and am continuously exploring ways to enhance user satisfaction and engagement.
+                    </p>
+                    <p class="about-description">
+                        I am proficient in JavaScript (React, Node.js), Java, and SQL, and I'm always eager to learn new technologies and methodologies.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Portfolio</h2>
+                <p class="section-description">Explore some of my recent projects and work</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image" data-text="E-commerce Platform"></div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>E-commerce Platform</h3>
+                                <p>Full-stack web application built with React and Node.js</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-icon" aria-label="View E-commerce Platform live" title="View Project"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="btn-icon" aria-label="View E-commerce Platform source code" title="View Code"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image" data-text="Task Management App"></div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Task Management App</h3>
+                                <p>React Native mobile application with real-time sync</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-icon" aria-label="View Task Management App live" title="View Project"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="btn-icon" aria-label="View Task Management App source code" title="View Code"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image" data-text="Weather Dashboard"></div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Weather Dashboard</h3>
+                                <p>Interactive weather application with data visualization</p>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-icon" aria-label="View Weather Dashboard live" title="View Project"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="btn-icon" aria-label="View Weather Dashboard source code" title="View Code"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">My Skills</h2>
+                <p class="section-description">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-cuttlefish"></i>
+                    </div>
+                    <h3 class="skill-name">C</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-cuttlefish"></i>
+                    </div>
+                    <h3 class="skill-name">C++</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3 class="skill-name">Java</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="skill-name">ReactJS</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="skill-name">TypeScript</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h3 class="skill-name">Figma</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-name">MySQL</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="skill-name">MongoDB</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-name">PostgreSQL</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML</h3>
+                </div>
+                <div class="skill-item stagger-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-description">Let's work together on your next project</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>seyhakrith78@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+855 15 629 192</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Phnom Penh, Cambodia</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <span class="form-error" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <span class="form-error" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <span class="form-error" id="subject-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <span class="form-error" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading">Sending...</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <h3>Rith Seyhak</h3>
+                        <p>Software Engineer</p>
+                    </div>
+                    <p class="footer-description">
+                        Passionate about creating innovative digital solutions and bringing ideas to life through code.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">UI/UX Design</a></li>
+                            <li><a href="#">Consulting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Follow Me</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Follow on GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" aria-label="Connect on LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Follow on Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" aria-label="Follow on Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rith Seyhak. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="src/scripts/animations.js"></script>
+    <script src="dist/scripts/portfolio.js"></script>
+</body>
+</html>

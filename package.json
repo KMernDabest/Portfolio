@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "A responsive portfolio website built with TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "serve": "live-server --open=index.html"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "live-server": "^1.2.2"
+  },
+  "keywords": ["portfolio", "typescript", "responsive", "website"],
+  "author": "Rith Seyhak",
+  "license": "MIT"
+}

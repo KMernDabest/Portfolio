@@ -1,0 +1,7 @@
+<!-- Simple HTML favicon placeholder -->
+<!-- To create a proper favicon, you can:
+1. Create a 32x32 pixel .ico file
+2. Use online tools like favicon.io or realfavicongenerator.net
+3. Place the favicon.ico file in the assets/images/ directory -->
+
+<!-- For now, we'll use a data URI favicon in the HTML -->
