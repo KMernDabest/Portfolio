@@ -118,6 +118,17 @@
     justify-content: center;
   }
   
+  .hero-social {
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+  
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    font-size: var(--font-size-lg);
+  }
+  
   .about-stats {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }

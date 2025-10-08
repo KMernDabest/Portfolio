@@ -899,6 +899,23 @@ body {
   margin-bottom: var(--spacing-md);
 }
 
+.gradient-name {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background: var(--gradient-accent);
+  }
+  50% {
+    background: var(--gradient-secondary);
+  }
+}
+
 /* Responsive hero title sizing */
 @media (max-width: 768px) {
   .hero-title {
@@ -997,6 +1014,80 @@ body {
   display: flex;
   gap: var(--spacing-lg);
   flex-wrap: wrap;
+}
+
+/* Hero Social Media Icons */
+.hero-social {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  justify-content: flex-start;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  border: 2px solid var(--text-secondary);
+  font-size: var(--font-size-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.social-icon.facebook:hover {
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradient-shift 2s ease infinite;
+}
+
+.social-icon.instagram:hover {
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  background: var(--gradient-secondary);
+  background-size: 200% 200%;
+  animation: gradient-shift 2s ease infinite;
+}
+
+.social-icon.linkedin:hover {
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  background: var(--gradient-accent);
+  background-size: 200% 200%;
+  animation: gradient-shift 2s ease infinite;
+}
+
+.social-icon.github:hover {
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradient-shift 2s ease infinite;
+}
+
+/* Enhanced gradient animation for social icons */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-visual {
