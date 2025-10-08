@@ -96,7 +96,20 @@
   .nav-toggle.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
+  /* Mobile navbar transparency adjustments */
+  .navbar:not(.scrolled):not(.scrolling) .nav-toggle .bar {
+    background: var(--text-primary);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+
+  .navbar:not(.scrolled):not(.scrolling) .nav-menu {
+    background: rgba(10, 14, 39, 0.95);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 71, 87, 0.2);
+  }
+
   .hero {
     padding-top: 80px;
   }
@@ -531,4 +544,194 @@ textarea:focus,
 /* Smooth transitions for theme changes */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===== ANIMATED BACKGROUND RESPONSIVE ===== */
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 768px) {
+  .bg-particles {
+    animation-duration: 25s; /* Slower animation for better performance */
+  }
+  
+  .wave {
+    animation-duration: 20s; /* Slower waves */
+    height: 100px; /* Smaller waves */
+  }
+  
+  .code-element {
+    font-size: 1rem; /* Smaller code elements */
+    animation-duration: 15s; /* Slower animation */
+  }
+  
+  .geo-shape {
+    animation-duration: 25s; /* Slower geometric shapes */
+  }
+  
+  .triangle {
+    border-left-width: 15px;
+    border-right-width: 15px;
+    border-bottom-width: 26px;
+  }
+  
+  .circle {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .square {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .hexagon {
+    width: 25px;
+    height: 21px;
+  }
+  
+  .hexagon:before,
+  .hexagon:after {
+    border-left-width: 12px;
+    border-right-width: 12px;
+  }
+  
+  .hexagon:before {
+    border-bottom-width: 7px;
+  }
+  
+  .hexagon:after {
+    border-top-width: 7px;
+  }
+  
+  /* Reduce particle count for mobile performance */
+  .floating-particles .particle:nth-child(n+8) {
+    display: none;
+  }
+}
+
+/* Tablet devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .code-element {
+    font-size: 1.2rem;
+  }
+  
+  .geo-shape {
+    animation-duration: 18s;
+  }
+  
+  .wave {
+    animation-duration: 12s;
+  }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+  .code-element {
+    font-size: 1.8rem;
+  }
+  
+  /* Add more particles for larger screens */
+  .floating-particles::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 71, 87, 0.4);
+    border-radius: 50%;
+    top: 60%;
+    right: 20%;
+    animation: particleFloat 12s linear infinite;
+    animation-delay: 3s;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-particles,
+  .bg-waves,
+  .bg-code-elements,
+  .bg-geometric {
+    opacity: 0.8;
+  }
+  
+  .code-element {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bg-particles,
+  .wave,
+  .code-element,
+  .geo-shape,
+  .floating-particles .particle {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  
+  .animated-bg {
+    opacity: 0.3;
+  }
+}
+
+/* Performance optimization for low-end devices */
+@media (max-width: 480px) {
+  .bg-waves,
+  .bg-code-elements {
+    display: none; /* Hide complex animations on very small screens */
+  }
+  
+  .bg-particles,
+  .about-particles,
+  .portfolio-particles,
+  .skills-particles,
+  .contact-particles {
+    opacity: 0.5;
+  }
+  
+  .bg-geometric .geo-shape:nth-child(n+3) {
+    display: none; /* Show only 2 geometric shapes */
+  }
+  
+  /* Hide extra geometric shapes in all sections */
+  .about-bg .geo-shape:nth-child(n+2),
+  .portfolio-bg .geo-shape:nth-child(n+2),
+  .skills-bg .geo-shape:nth-child(n+2),
+  .contact-bg .geo-shape:nth-child(n+2) {
+    display: none;
+  }
+}
+
+/* Section-specific responsive adjustments */
+@media (max-width: 768px) {
+  .about-bg .about-particles,
+  .portfolio-bg .portfolio-particles,
+  .skills-bg .skills-particles,
+  .contact-bg .contact-particles {
+    animation-duration: 30s; /* Slower animations on mobile */
+  }
+  
+  /* Reduce complexity of new geometric shapes */
+  .circle-outline,
+  .diamond,
+  .pentagon,
+  .star,
+  .gear,
+  .octagon,
+  .envelope,
+  .network {
+    animation-duration: 30s;
+    opacity: 0.05;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Enhanced effects for larger screens */
+  .about-bg .about-particles,
+  .portfolio-bg .portfolio-particles,
+  .skills-bg .skills-particles,
+  .contact-bg .contact-particles {
+    animation-duration: 20s;
+  }
 }

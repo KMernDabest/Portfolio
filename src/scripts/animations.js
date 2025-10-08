@@ -115,13 +115,46 @@ document.querySelectorAll('.btn').forEach(btn => {
     });
 });
 
-// Navbar scroll effect
+// Enhanced navbar scroll effect with smooth blending
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+    const scrollY = window.scrollY;
+    const heroSection = document.querySelector('.hero');
+    const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    
+    // Calculate scroll progress through hero section
+    const scrollProgress = Math.min(scrollY / (heroHeight * 0.3), 1); // Start transition at 30% of hero height
+    
+    // Remove all scroll classes first
+    navbar.classList.remove('scrolled', 'scrolling');
+    
+    if (scrollY < 20) {
+        // Completely transparent at the top
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'blur(0px)';
+        navbar.style.borderBottom = '1px solid transparent';
+    } else if (scrollY < 100) {
+        // Gradual transition
+        navbar.classList.add('scrolling');
+        const opacity = scrollProgress * 0.7;
+        const blur = scrollProgress * 8;
+        navbar.style.background = `rgba(10, 14, 39, ${opacity})`;
+        navbar.style.backdropFilter = `blur(${blur}px)`;
+        navbar.style.borderBottom = `1px solid rgba(255, 71, 87, ${opacity * 0.1})`;
     } else {
-        navbar.classList.remove('scrolled');
+        // Fully opaque when scrolled
+        navbar.classList.add('scrolled');
+        navbar.style.background = '';
+        navbar.style.backdropFilter = '';
+        navbar.style.borderBottom = '';
+    }
+    
+    // Add dynamic color shifting based on scroll position
+    const hueShift = Math.min(scrollY * 0.1, 30);
+    if (scrollY > 0) {
+        navbar.style.filter = `hue-rotate(${hueShift}deg)`;
+    } else {
+        navbar.style.filter = '';
     }
 });
 
@@ -324,3 +357,72 @@ function initMobileNavigation() {
         }
     });
 }
+
+// ===== TYPING ANIMATION =====
+class TypingAnimation {
+    constructor() {
+        this.typingElement = document.getElementById('typingText');
+        this.typingTexts = [
+            'Software Engineer',
+            'UX/UI Developer', 
+            'Web Developer',
+            'Frontend Developer',
+            'Backend Developer'
+        ];
+        this.currentTextIndex = 0;
+        this.currentCharIndex = 0;
+        this.isDeleting = false;
+        this.typingSpeed = 100;
+        this.deletingSpeed = 50;
+        this.pauseAfterComplete = 2000;
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.typingElement) return;
+        
+        // Start the typing animation after a short delay
+        setTimeout(() => {
+            this.typeText();
+        }, 1000);
+    }
+    
+    typeText() {
+        if (!this.typingElement) return;
+
+        const currentText = this.typingTexts[this.currentTextIndex];
+        
+        if (this.isDeleting) {
+            // Remove characters
+            this.typingElement.textContent = currentText.substring(0, this.currentCharIndex - 1);
+            this.currentCharIndex--;
+            
+            if (this.currentCharIndex === 0) {
+                this.isDeleting = false;
+                this.currentTextIndex = (this.currentTextIndex + 1) % this.typingTexts.length;
+                setTimeout(() => this.typeText(), 500); // Pause before typing next word
+                return;
+            }
+            
+            setTimeout(() => this.typeText(), this.deletingSpeed);
+        } else {
+            // Add characters
+            this.typingElement.textContent = currentText.substring(0, this.currentCharIndex + 1);
+            this.currentCharIndex++;
+            
+            if (this.currentCharIndex === currentText.length) {
+                this.isDeleting = true;
+                setTimeout(() => this.typeText(), this.pauseAfterComplete);
+                return;
+            }
+            
+            setTimeout(() => this.typeText(), this.typingSpeed);
+        }
+    }
+}
+
+// Initialize typing animation when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    new TypingAnimation();
+});

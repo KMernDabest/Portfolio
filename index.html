@@ -65,14 +65,39 @@
 
     <!-- Home Section -->
     <section id="home" class="hero">
+        <!-- Animated Background -->
+        <div class="animated-bg">
+            <div class="bg-particles"></div>
+            <div class="bg-waves">
+                <div class="wave wave-1"></div>
+                <div class="wave wave-2"></div>
+                <div class="wave wave-3"></div>
+            </div>
+            <div class="bg-code-elements">
+                <div class="code-element">&lt;/&gt;</div>
+                <div class="code-element">{}</div>
+                <div class="code-element">[]</div>
+                <div class="code-element">01</div>
+                <div class="code-element">🔧</div>
+                <div class="code-element">⚡</div>
+            </div>
+            <div class="bg-geometric">
+                <div class="geo-shape triangle"></div>
+                <div class="geo-shape circle"></div>
+                <div class="geo-shape square"></div>
+                <div class="geo-shape hexagon"></div>
+            </div>
+        </div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text fade-in-left">
                     <h1 class="hero-title">
-                        Hi, I'm <br>
-                        <span class="highlight">Rith Seyhak</span>
+                        Hi, I'm<br>
+                        Rith Seyhak
                     </h1>
-                    <p class="hero-subtitle">Software Engineer</p>
+                    <p class="hero-subtitle">
+                        and I'm a <span class="typing-text" id="typingText"></span><span class="cursor">|</span>
+                    </p>
                     <div class="hero-badge">
                         <a href="#" class="badge" download onclick="downloadCV()">
                             <i class="fas fa-download"></i> Download CV
@@ -99,6 +124,22 @@
 
     <!-- About Section -->
     <section id="about" class="about">
+        <!-- About Animated Background -->
+        <div class="animated-bg about-bg">
+            <div class="bg-particles about-particles"></div>
+            <div class="bg-code-elements">
+                <div class="code-element">📚</div>
+                <div class="code-element">💡</div>
+                <div class="code-element">🎓</div>
+                <div class="code-element">const</div>
+                <div class="code-element">let</div>
+                <div class="code-element">function</div>
+            </div>
+            <div class="bg-geometric">
+                <div class="geo-shape circle-outline"></div>
+                <div class="geo-shape diamond"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">About me</h2>
@@ -135,6 +176,22 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
+        <!-- Portfolio Animated Background -->
+        <div class="animated-bg portfolio-bg">
+            <div class="bg-particles portfolio-particles"></div>
+            <div class="bg-code-elements">
+                <div class="code-element">🎨</div>
+                <div class="code-element">💻</div>
+                <div class="code-element">🚀</div>
+                <div class="code-element">class</div>
+                <div class="code-element">import</div>
+                <div class="code-element">export</div>
+            </div>
+            <div class="bg-geometric">
+                <div class="geo-shape pentagon"></div>
+                <div class="geo-shape star"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">My Portfolio</h2>
@@ -198,6 +255,22 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
+        <!-- Skills Animated Background -->
+        <div class="animated-bg skills-bg">
+            <div class="bg-particles skills-particles"></div>
+            <div class="bg-code-elements">
+                <div class="code-element">⚡</div>
+                <div class="code-element">🔧</div>
+                <div class="code-element">⚙️</div>
+                <div class="code-element">async</div>
+                <div class="code-element">await</div>
+                <div class="code-element">return</div>
+            </div>
+            <div class="bg-geometric">
+                <div class="geo-shape gear"></div>
+                <div class="geo-shape octagon"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">My Skills</h2>
@@ -282,6 +355,22 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
+        <!-- Contact Animated Background -->
+        <div class="animated-bg contact-bg">
+            <div class="bg-particles contact-particles"></div>
+            <div class="bg-code-elements">
+                <div class="code-element">📧</div>
+                <div class="code-element">📱</div>
+                <div class="code-element">🌐</div>
+                <div class="code-element">connect</div>
+                <div class="code-element">send</div>
+                <div class="code-element">receive</div>
+            </div>
+            <div class="bg-geometric">
+                <div class="geo-shape envelope"></div>
+                <div class="geo-shape network"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Get In Touch</h2>
@@ -399,6 +488,7 @@
     </button>
 
     <!-- Scripts -->
+    <script src="src/scripts/background-animation.js"></script>
     <script src="src/scripts/animations.js"></script>
     <script src="dist/scripts/portfolio.js"></script>
 </body>

@@ -30,6 +30,20 @@ class PortfolioApp {
   private portfolioItems: NodeListOf<Element>;
   private filterButtons: NodeListOf<Element>;
   private isScrolling: boolean = false;
+  private typingElement: HTMLElement | null;
+  private typingTexts: string[] = [
+    'Software Engineer',
+    'UX/UI Developer', 
+    'Web Developer',
+    'Frontend Developer',
+    'Backend Developer'
+  ];
+  private currentTextIndex: number = 0;
+  private currentCharIndex: number = 0;
+  private isDeleting: boolean = false;
+  private typingSpeed: number = 100;
+  private deletingSpeed: number = 50;
+  private pauseAfterComplete: number = 2000;
 
   constructor() {
     this.navbar = document.getElementById('navbar');
@@ -39,6 +53,7 @@ class PortfolioApp {
     this.contactForm = document.getElementById('contact-form') as HTMLFormElement;
     this.portfolioItems = document.querySelectorAll('.portfolio-item');
     this.filterButtons = document.querySelectorAll('.filter-btn');
+    this.typingElement = document.getElementById('typingText');
     
     this.init();
   }
@@ -50,6 +65,7 @@ class PortfolioApp {
     this.setupPortfolioFilter();
     this.setupIntersectionObserver();
     this.setupSmoothScrolling();
+    this.setupTypingAnimation();
   }
 
   // ===== EVENT LISTENERS SETUP =====
@@ -485,6 +501,49 @@ class PortfolioApp {
     // Close mobile nav on resize
     if (window.innerWidth > 991) {
       this.closeMobileNav();
+    }
+  }
+
+  // ===== TYPING ANIMATION METHODS =====
+  private setupTypingAnimation(): void {
+    if (!this.typingElement) return;
+    
+    // Start the typing animation
+    setTimeout(() => {
+      this.typeText();
+    }, 1000); // Start after 1 second delay
+  }
+
+  private typeText(): void {
+    if (!this.typingElement) return;
+
+    const currentText = this.typingTexts[this.currentTextIndex];
+    
+    if (this.isDeleting) {
+      // Remove characters
+      this.typingElement.textContent = currentText.substring(0, this.currentCharIndex - 1);
+      this.currentCharIndex--;
+      
+      if (this.currentCharIndex === 0) {
+        this.isDeleting = false;
+        this.currentTextIndex = (this.currentTextIndex + 1) % this.typingTexts.length;
+        setTimeout(() => this.typeText(), 500); // Pause before typing next word
+        return;
+      }
+      
+      setTimeout(() => this.typeText(), this.deletingSpeed);
+    } else {
+      // Add characters
+      this.typingElement.textContent = currentText.substring(0, this.currentCharIndex + 1);
+      this.currentCharIndex++;
+      
+      if (this.currentCharIndex === currentText.length) {
+        this.isDeleting = true;
+        setTimeout(() => this.typeText(), this.pauseAfterComplete);
+        return;
+      }
+      
+      setTimeout(() => this.typeText(), this.typingSpeed);
     }
   }
 }
