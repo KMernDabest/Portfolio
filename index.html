@@ -46,6 +46,9 @@
                     <a href="#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
                     <a href="#portfolio" class="nav-link">Portfolio</a>
                 </li>
                 <li class="nav-item">
@@ -169,18 +172,56 @@
                     <p class="about-description">
                         I am proficient in JavaScript (React, Node.js), Java, and SQL, and I'm always eager to learn new technologies and methodologies.
                     </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <!-- Experience Animated Background -->
+        <div class="animated-bg experience-bg">
+            <div class="bg-particles experience-particles"></div>
+            <div class="bg-code-elements">
+                <div class="code-element">🏆</div>
+                <div class="code-element">📜</div>
+                <div class="code-element">⭐</div>
+                <div class="code-element">✓</div>
+                <div class="code-element">🎓</div>
+            </div>
+            <div class="bg-geometric">
+                <div class="geo-shape triangle"></div>
+                <div class="geo-shape circle"></div>
+                <div class="geo-shape square"></div>
+            </div>
+        </div>
+        
+        <div class="section-container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Experience & Achievements</h2>
+                <p class="section-subtitle">Certifications and accomplishments that showcase my expertise</p>
+            </div>
+            
+            <div class="certificates-container">
+                <div class="certificates-grid">
+                    <!-- Certificate Card - STEM -->
+                    <div class="certificate-card fade-in-up">
+                        <div class="certificate-image-container" onclick="openCertificateModal('assets/images/STEM certificate.png')" style="cursor: pointer;" title="Click to view full certificate">
+                            <img src="assets/images/STEM certificate.png" alt="STEM Certificate" class="certificate-image">
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Client Satisfaction</span>
+                        <div class="certificate-details">
+                            <div class="certificate-header">
+                                <h3 class="certificate-program">STEM Festival 2025</h3>
+                                <span class="certificate-year">2025</span>
+                            </div>
+                            <div class="certificate-tags">
+                                <span class="tag">Environment</span>
+                                <span class="tag">Robotics</span>
+                            </div>
+                            <p class="certificate-description">
+                                Completed comprehensive STEM program focused on next-generation teaching methodologies 
+                                and web design principles, demonstrating excellence in educational technology and digital innovation.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -500,6 +541,17 @@
     <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- Certificate Modal -->
+    <div class="certificate-modal" id="certificateModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="Certificate" class="modal-image" id="modalImage">
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="src/scripts/background-animation.js"></script>

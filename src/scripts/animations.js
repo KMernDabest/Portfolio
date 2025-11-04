@@ -426,3 +426,47 @@ class TypingAnimation {
 document.addEventListener('DOMContentLoaded', function() {
     new TypingAnimation();
 });
+
+// ===== CERTIFICATE MODAL FUNCTIONS =====
+// Make functions global so they work with onclick attributes
+window.openCertificateModal = function(imageSrc) {
+    const modal = document.getElementById('certificateModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    if (modal && modalImage) {
+        modalImage.src = imageSrc;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+window.closeCertificateModal = function() {
+    const modal = document.getElementById('certificateModal');
+    
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+// Close modal when clicking overlay or close button
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('certificateModal');
+    const modalOverlay = modal?.querySelector('.modal-overlay');
+    const modalClose = modal?.querySelector('.modal-close');
+    
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', window.closeCertificateModal);
+    }
+    
+    if (modalClose) {
+        modalClose.addEventListener('click', window.closeCertificateModal);
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal?.classList.contains('active')) {
+            window.closeCertificateModal();
+        }
+    });
+});
