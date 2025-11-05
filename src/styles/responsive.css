@@ -211,8 +211,21 @@
     margin-bottom: var(--spacing-2xl);
   }
   
+  .hero {
+    min-height: 100vh;
+  }
+  
+  .hero-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
   .hero-visual {
-    height: 250px;
+    height: 200px;
+  }
+  
+  .floating-elements {
+    display: none;
   }
   
   .floating-item {
@@ -409,11 +422,19 @@
   }
   
   .hero {
-    min-height: 90vh;
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+  
+  .hero-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
   
   .hero-content {
     gap: var(--spacing-lg);
+    width: 100%;
   }
   
   .hero-title {
@@ -427,6 +448,10 @@
   
   .hero-visual {
     height: 150px;
+  }
+  
+  .floating-elements {
+    display: none;
   }
   
   .floating-item {
