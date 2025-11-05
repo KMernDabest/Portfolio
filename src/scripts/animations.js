@@ -116,14 +116,28 @@ document.querySelectorAll('.btn').forEach(btn => {
 });
 
 // Enhanced navbar scroll effect with smooth blending
+let ticking = false;
+let lastScrollY = 0;
+
 window.addEventListener('scroll', function() {
+    lastScrollY = window.scrollY;
+    
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            updateNavbar(lastScrollY);
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+function updateNavbar(scrollY) {
     const navbar = document.querySelector('.navbar');
-    const scrollY = window.scrollY;
     const heroSection = document.querySelector('.hero');
     const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
     
-    // Calculate scroll progress through hero section
-    const scrollProgress = Math.min(scrollY / (heroHeight * 0.3), 1); // Start transition at 30% of hero height
+    // Detect mobile devices
+    const isMobile = window.innerWidth <= 991;
     
     // Remove all scroll classes first
     navbar.classList.remove('scrolled', 'scrolling');
@@ -133,16 +147,17 @@ window.addEventListener('scroll', function() {
         navbar.style.background = 'transparent';
         navbar.style.backdropFilter = 'blur(0px)';
         navbar.style.borderBottom = '1px solid transparent';
-    } else if (scrollY < 100) {
-        // Gradual transition
+    } else if (scrollY < 100 && !isMobile) {
+        // Gradual transition (skip on mobile for better performance)
         navbar.classList.add('scrolling');
+        const scrollProgress = Math.min(scrollY / (heroHeight * 0.3), 1);
         const opacity = scrollProgress * 0.7;
         const blur = scrollProgress * 8;
         navbar.style.background = `rgba(10, 14, 39, ${opacity})`;
         navbar.style.backdropFilter = `blur(${blur}px)`;
         navbar.style.borderBottom = `1px solid rgba(255, 71, 87, ${opacity * 0.1})`;
     } else {
-        // Fully opaque when scrolled
+        // Fully opaque when scrolled (immediate on mobile)
         navbar.classList.add('scrolled');
         navbar.style.background = '';
         navbar.style.backdropFilter = '';
@@ -156,7 +171,7 @@ window.addEventListener('scroll', function() {
     } else {
         navbar.style.filter = '';
     }
-});
+}
 
 // Add scroll reveal animation to sections
 function addScrollReveal() {

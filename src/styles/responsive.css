@@ -46,6 +46,18 @@
 
 /* Tablet screens (768px to 991px) */
 @media (max-width: 991px) {
+  /* Mobile performance optimizations */
+  .navbar {
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  .navbar.scrolled,
+  .navbar.scrolling {
+    transition: background 0.2s ease-out, backdrop-filter 0.2s ease-out;
+  }
+  
   :root {
     --font-size-5xl: 2.5rem;
     --font-size-4xl: 2rem;
